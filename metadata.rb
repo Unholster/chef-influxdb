@@ -23,8 +23,7 @@ description      'InfluxDB, a timeseries database'
 version          '2.6.0'
 
 # For CLI client
-# https://github.com/balbeko/chef-npm
-suggests 'npm'
+suggests 'nodejs'
 
 # For ChefInfluxDB Chef handler
 # https://github.com/jakedavis/chef-handler-influxdb
