@@ -180,10 +180,10 @@ default[:influxdb][:zero_nine][:config] = {
   ],
   collectd: {
     enabled: node[:influxdb][:collectd][:enabled],
-    'bind-address' => "node[:influxdb][:collectd][:address]",
+    'bind-address' => "#{node[:influxdb][:collectd][:bindaddress]}",
     port: node[:influxdb][:collectd][:port],
-    database: "node[:influxdb][:collectd][:database]",
-    typesdb: "node[:influxdb][:collectd][:typesdb]"
+    database: "#{node[:influxdb][:collectd][:database]}",
+    typesdb: "#{node[:influxdb][:collectd][:typesdb]}"
   },
   opentsdb: {
     enabled: false,
