@@ -179,11 +179,11 @@ default[:influxdb][:zero_nine][:config] = {
     }
   ],
   collectd: {
-    enabled: false,
-    'bind-address' => "0.0.0.0",
-    port: 25827,
-    database: "collectd_database",
-    typesdb: "types.db"
+    enabled: node[:influxdb][:collectd][:enabled],
+    'bind-address' => "node[:influxdb][:collectd][:address]",
+    port: node[:influxdb][:collectd][:port],
+    database: "node[:influxdb][:collectd][:database]",
+    typesdb: "node[:influxdb][:collectd][:typesdb]"
   },
   opentsdb: {
     enabled: false,
