@@ -269,5 +269,12 @@ default[:influxdb][:zero_nine][:config] = {
   monitoring: {
     enabled: false,
     'write-interval' => "1m"          # Period between writing the data.
+  },
+  wal: {
+    dir: '/opt/influxdb/shared/data/wal',
+    'flush-after' => 1_000,
+    'bookmark-after' => 1_000,
+    'index-after' => 1_000,
+    'requests-per-logfile' => 10_000
   }
 }
