@@ -179,7 +179,7 @@ default[:influxdb][:zero_nine][:config] = {
     }
   ],
   collectd: {
-    enabled: node[:influxdb][:collectd][:enabled],
+    enabled: node[:influxdb][:collectd][:enabled] || false,
     'bind-address' => "#{node[:influxdb][:collectd][:bindaddress]}",
     port: node[:influxdb][:collectd][:port],
     database: "#{node[:influxdb][:collectd][:database]}",
