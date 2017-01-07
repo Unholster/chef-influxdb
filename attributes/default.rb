@@ -221,7 +221,7 @@ default[:influxdb][:zero_nine][:config] = {
   data: {
     enabled: true,
     dir: "#{node[:influxdb][:data_root_dir]}/db",
-
+    'wal-dir': '/opt/influxdb/shared/data/wal',
     # Auto-create a retention policy when a database is created. Defaults to true.
     'retention-auto-create' => true,
 
@@ -269,13 +269,5 @@ default[:influxdb][:zero_nine][:config] = {
   monitoring: {
     enabled: false,
     'write-interval' => "1m"          # Period between writing the data.
-  },
-  wal: {
-    dir: '/opt/influxdb/shared/data/wal',
-    'wal-dir': '/opt/influxdb/shared/data/wal',
-    'flush-after' => 1_000,
-    'bookmark-after' => 1_000,
-    'index-after' => 1_000,
-    'requests-per-logfile' => 10_000
   }
 }
