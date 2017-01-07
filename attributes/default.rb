@@ -272,6 +272,7 @@ default[:influxdb][:zero_nine][:config] = {
   },
   wal: {
     dir: '/opt/influxdb/shared/data/wal',
+    'wal-dir': '/opt/influxdb/shared/data/wal',
     'flush-after' => 1_000,
     'bookmark-after' => 1_000,
     'index-after' => 1_000,
