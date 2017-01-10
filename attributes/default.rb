@@ -43,6 +43,8 @@ default[:influxdb][:config_file_path] = "#{node[:influxdb][:config_root_dir]}/in
 # For versions < 0.9.x set default[:influxdb][:config] immediately following this.
 # For versions >= 0.9.x set default[:influxdb][:zero_nine][:config] later in the file.
 
+default[:influxdb][:collectd] = {}
+
 
 # For influxdb versions < 0.9.x
 # Based on https://github.com/influxdb/influxdb/blob/v0.8.5/config.sample.toml
