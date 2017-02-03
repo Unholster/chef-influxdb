@@ -43,6 +43,8 @@ default[:influxdb][:config_file_path] = "#{node[:influxdb][:config_root_dir]}/in
 # For versions < 0.9.x set default[:influxdb][:config] immediately following this.
 # For versions >= 0.9.x set default[:influxdb][:zero_nine][:config] later in the file.
 
+default[:influxdb][:collectd] = {}
+
 
 # For influxdb versions < 0.9.x
 # Based on https://github.com/influxdb/influxdb/blob/v0.8.5/config.sample.toml
@@ -179,7 +181,7 @@ default[:influxdb][:zero_nine][:config] = {
     }
   ],
   collectd: {
-    enabled: node[:influxdb][:collectd][:enabled],
+    enabled: node[:influxdb][:collectd][:enabled] || false,
     'bind-address' => "#{node[:influxdb][:collectd][:bindaddress]}",
     port: node[:influxdb][:collectd][:port],
     database: "#{node[:influxdb][:collectd][:database]}",
@@ -191,11 +193,11 @@ default[:influxdb][:zero_nine][:config] = {
     port: 4242,
     database: "opentsdb_database"
   },
-  udp: {
+  udp: [{
     enabled: false,
     'bind-address' => "0.0.0.0",
     port: 4444
-  },
+  }],
 
   # Broker configuration. Brokers are nodes which participate in distributed
   # consensus.
@@ -221,7 +223,7 @@ default[:influxdb][:zero_nine][:config] = {
   data: {
     enabled: true,
     dir: "#{node[:influxdb][:data_root_dir]}/db",
-
+    'wal-dir': '/opt/influxdb/shared/data/wal',
     # Auto-create a retention policy when a database is created. Defaults to true.
     'retention-auto-create' => true,
 
